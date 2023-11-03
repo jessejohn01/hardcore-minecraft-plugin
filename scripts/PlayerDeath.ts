@@ -3,7 +3,7 @@ import { SendMessage } from "./discord";
 
 export const PlayerDeath = (entityDeathEvent: EntityDieAfterEvent) => {
   const deadPlayer = entityDeathEvent.deadEntity;
-
+  world.scoreboard.getObjective("ServerDeaths")?.addScore(deadPlayer.nameTag, 1);
   if (
     (world.scoreboard
       .getObjective("ServerDeaths")

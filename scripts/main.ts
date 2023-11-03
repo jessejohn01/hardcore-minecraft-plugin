@@ -1,19 +1,19 @@
 import { world, EntityDieAfterEvent, PlayerJoinAfterEvent } from "@minecraft/server";
 import { PlayerDeath } from "./PlayerDeath";
 
-world.afterEvents.entityDie.subscribe(
-  (entityDeathEvent: EntityDieAfterEvent) => {
-    PlayerDeath(entityDeathEvent);
-  },
-  { entityTypes: ["minecraft:player"] }
-);
-
 if (world.scoreboard.getObjective("ServerDeaths") == undefined) {
   world.scoreboard.addObjective("ServerDeaths", "Server Deaths");
 }
 if (world.scoreboard.getObjective("MaxLives") == undefined) {
   world.scoreboard.addObjective("MaxLives", "Max Lives");
 }
+
+world.afterEvents.entityDie.subscribe(
+  (entityDeathEvent: EntityDieAfterEvent) => {
+    PlayerDeath(entityDeathEvent);
+  },
+  { entityTypes: ["minecraft:player"] }
+);
 
 world.afterEvents.playerSpawn.subscribe(() => {
   for (const player of world.getPlayers()) {
