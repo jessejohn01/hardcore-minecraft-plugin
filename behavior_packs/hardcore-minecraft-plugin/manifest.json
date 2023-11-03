@@ -1,0 +1,30 @@
+{
+  "format_version": 2,
+  "header": {
+    "name": "Hardcore Minecraft Plugin",
+    "description": "A simple hardcore Minecraft plugin for servers.",
+    "uuid": "ffa1d02e-74f7-472d-8284-ddd1c4805136",
+    "version": [0, 0, 2],
+    "min_engine_version": [1, 20, 30]
+  },
+  "modules": [
+    {
+      "description": "Script resources",
+      "language": "javascript",
+      "type": "script",
+      "uuid": "90ee999d-b612-4f88-a8cd-57424d9cea7f",
+      "version": [0, 0, 2],
+      "entry": "scripts/main.js"
+    }
+  ],
+  "dependencies": [
+    {
+      "module_name": "@minecraft/server",
+      "version": "1.6.0"
+    },
+    {
+      "module_name": "@minecraft/server-net",
+      "version": "1.0.0-beta"
+    }
+  ]
+}
